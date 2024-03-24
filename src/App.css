@@ -1,1 +1,10 @@
 @tailwind components;
+
+@layer components{
+    .dark{
+        @apply bg-gray-950 text-white
+    }
+    .white{
+        @apply bg-white text-gray-950
+    }
+}

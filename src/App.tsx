@@ -1,11 +1,7 @@
 import "./App.css";
 
 function App() {
-    return (
-        <>
-            <span className="text-red-500 underline">Hello world</span>
-        </>
-    );
+    return <div>test</div>;
 }
 
 export default App;
