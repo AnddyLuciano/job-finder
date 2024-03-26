@@ -1,6 +1,6 @@
 import { useRecoilState } from "recoil";
-import { themeState } from "../states/GlobalStates";
 import { useEffect } from "react";
+import { themeState } from "../states/GlobalStates";
 
 export const Theme = () => {
     const [isDark, setIsDark] = useRecoilState(themeState);
@@ -22,8 +22,8 @@ export const Theme = () => {
         <div
             className={`fixed hover:cursor-pointer bottom-10 right-10 rounded-full border-2 w-14 h-14 hover:opacity-80 ${
                 isDark
-                    ? "bg-slate-600 text-white shadow-white"
-                    : "bg-white text-slate-600 shadow-slate-600"
+                    ? "bg-gray-800 text-white shadow-white"
+                    : "bg-white text-gray-800 shadow-gray-800"
             }`}
             onClick={handleClick}
         >
