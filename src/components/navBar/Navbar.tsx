@@ -5,7 +5,7 @@ const Navbar = () => {
     const menulists = useMenuList();
     return (
         <div className="flex items-center justify-between py-8">
-            <div className="logo-box">
+            <div className="logo-box hover:cursor-pointer">
                 <p className="text-xl">
                     <strong className="text-primary">Job</strong> Finder
                 </p>
