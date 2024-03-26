@@ -5,6 +5,6 @@
         @apply bg-gray-950 text-white
     }
     .white{
-        @apply bg-white text-gray-950
+        @apply bg-slate-50 text-gray-950
     }
 }
