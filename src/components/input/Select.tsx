@@ -1,12 +1,14 @@
 import { jobFilterState } from "../../states/GlobalStates";
-import React, { ChangeEvent, PropsWithChildren, useEffect } from "react";
+import React, { ChangeEvent, DetailedHTMLProps, PropsWithChildren, useEffect } from "react";
 import { useRecoilState } from "recoil";
 export function Select({
     isDark,
     children,
     label,
     name,
-}: { isDark: boolean; label: string; name: string } & PropsWithChildren) {
+    ref,
+}: { isDark: boolean; label: string; name: string } & PropsWithChildren &
+    DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>) {
     const [filter, setFilter] = useRecoilState(jobFilterState);
 
     const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -25,6 +27,7 @@ export function Select({
             </label>
             <select
                 name={name}
+                ref={ref}
                 id="relevance"
                 className={`py-2 px-4  ${
                     isDark
