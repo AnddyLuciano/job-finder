@@ -7,7 +7,7 @@ export function Select({
     label,
     name,
     ref,
-}: { isDark: boolean; label: string; name: string } & PropsWithChildren &
+}: { isDark: boolean; label: string; name?: string } & PropsWithChildren &
     DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>) {
     const [filter, setFilter] = useRecoilState(jobFilterState);
 

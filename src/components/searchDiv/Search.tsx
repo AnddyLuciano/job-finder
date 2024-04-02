@@ -1,26 +1,28 @@
-import { themeState } from "../../states/GlobalStates";
 import React from "react";
+
+import { themeState } from "../../states/GlobalStates";
 import { useRecoilState } from "recoil";
-import Options from "../input/Options";
+import { ControlList } from "../control/ControlList";
+import { useSearchFormItem } from "../../hooks/useSearchFormItems";
+import { FieldValues, useForm } from "react-hook-form";
 import { Select } from "../input/Select";
+import Options from "../input/Options";
+import { ResetAllInput } from "../input/ResetAllInput";
 import { useSortByOption } from "../../hooks/useSortByOption";
 import { useTypeOption } from "../../hooks/useTypeOption";
 import { useLevelOption } from "../../hooks/useLevelOption";
-import { FieldValues, useForm } from "react-hook-form";
-import { TextInput } from "../input/TextInput";
-import { ResetAllInput } from "../input/ResetAllInput";
 
 const Search = () => {
     const [isDark] = useRecoilState(themeState);
-    const { register, handleSubmit, resetField, reset } = useForm();
-
+    const { reset } = useForm();
+    const control = useSearchFormItem();
     const sortByOption = useSortByOption();
     const typeOption = useTypeOption();
     const levelOption = useLevelOption();
 
-    const handleSearchSubmit = (values: FieldValues) => {
-        alert(JSON.stringify(values));
-    };
+    // const handleSearchSubmit = (values: FieldValues) => {
+    //     alert(JSON.stringify(values));
+    // };
 
     return (
         <div
@@ -28,48 +30,15 @@ const Search = () => {
                 isDark ? "bg-gray-800" : "bg-secondary"
             } rounded-md p-12`}
         >
-            <form onSubmit={handleSubmit(handleSearchSubmit)}>
-                <div
-                    className={`grid-one flex items-center justify-between flex-wrap ${
-                        isDark ? "bg-gray-700" : "bg-white"
-                    } shadow-sm py-3 px-5 rounded-md`}
-                >
-                    <TextInput
-                        name="inputJobSearch"
-                        register={register}
-                        resetField={resetField}
-                        placeholder="Search Job Here"
-                        isDark={isDark}
-                    />
-                    <TextInput
-                        name="inputCompanySearch"
-                        register={register}
-                        resetField={resetField}
-                        placeholder="Search By Company"
-                        isDark={isDark}
-                    />
-                    <TextInput
-                        name="inputLocationSearch"
-                        register={register}
-                        resetField={resetField}
-                        placeholder="Search By Location"
-                        isDark={isDark}
-                    />
-                    <input
-                        type="submit"
-                        className="py-3 px-5 rounded-md bg-primary text-white hover:opacity-90"
-                        value={"Search"}
-                    />
-                </div>
-            </form>
+            <ControlList {...control} />
             <div className="filter-box flex items-center justify-center gap-10">
-                <Select isDark={isDark} label="Sort by" {...register("sortBy")}>
+                <Select isDark={isDark} label="Sort by">
                     <Options options={sortByOption} />
                 </Select>
-                <Select isDark={isDark} label="Level" {...register("level")}>
+                <Select isDark={isDark} label="Level">
                     <Options options={levelOption} />
                 </Select>
-                <Select isDark={isDark} label="Type" {...register("type")}>
+                <Select isDark={isDark} label="Type">
                     <Options options={typeOption} />
                 </Select>
                 <ResetAllInput isDark={isDark} reset={reset} />
