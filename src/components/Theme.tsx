@@ -27,9 +27,15 @@ export const Theme = () => {
             }`}
             onClick={handleClick}
         >
-            <div className="h-full flex items-center justify-center text-2xl">
-                <i className="fa-regular fa-moon"></i>
-            </div>
+            {isDark ? (
+                <div className="h-full flex items-center justify-center text-2xl">
+                    <i className="fa-regular fa-sun"></i>
+                </div>
+            ) : (
+                <div className="h-full flex items-center justify-center text-2xl">
+                    <i className="fa-regular fa-moon"></i>
+                </div>
+            )}
         </div>
     );
 };
