@@ -1,11 +1,14 @@
-import { useRecoilState } from "recoil";
 import { useEffect } from "react";
-import { themeState } from "../states/GlobalStates";
+import { useThemeStore } from "../states/GlobalZustandStates";
 
 export const Theme = () => {
-    const [isDark, setIsDark] = useRecoilState(themeState);
+    const { isDark, setTheme } = useThemeStore((state) => ({
+        isDark: state.isDark,
+        setTheme: state.setTheme,
+    }));
+
     const handleClick = () => {
-        setIsDark(!isDark);
+        setTheme(!isDark);
     };
 
     useEffect(() => {

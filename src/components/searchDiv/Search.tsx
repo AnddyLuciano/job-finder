@@ -1,28 +1,23 @@
 import React from "react";
 
-import { themeState } from "../../states/GlobalStates";
-import { useRecoilState } from "recoil";
 import { ControlList } from "../control/ControlList";
 import { useSearchFormItem } from "../../hooks/useSearchFormItems";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Select } from "../input/Select";
 import Options from "../input/Options";
 import { ResetAllInput } from "../input/ResetAllInput";
 import { useSortByOption } from "../../hooks/useSortByOption";
 import { useTypeOption } from "../../hooks/useTypeOption";
 import { useLevelOption } from "../../hooks/useLevelOption";
+import { useThemeStore } from "../../states/GlobalZustandStates";
 
 const Search = () => {
-    const [isDark] = useRecoilState(themeState);
+    const { isDark } = useThemeStore();
     const { reset } = useForm();
     const control = useSearchFormItem();
     const sortByOption = useSortByOption();
     const typeOption = useTypeOption();
     const levelOption = useLevelOption();
-
-    // const handleSearchSubmit = (values: FieldValues) => {
-    //     alert(JSON.stringify(values));
-    // };
 
     return (
         <div

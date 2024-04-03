@@ -18,7 +18,7 @@ export const useSearchFormItem = () => {
                     },
                     {
                         type: "text",
-                        name: "inpuSearchLocation",
+                        name: "inputSearchLocation",
                         placeholder: "Search By Location",
                     },
                 ],

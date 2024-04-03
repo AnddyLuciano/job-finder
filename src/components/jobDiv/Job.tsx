@@ -1,11 +1,12 @@
 import React from "react";
 import JobCard from "./JobCard";
 import { useRecoilState } from "recoil";
-import { jobFilterState, themeState } from "../../states/GlobalStates";
+import { jobFilterState } from "../../states/GlobalStates";
 import { useJobList } from "../../hooks/useJobList";
+import { useThemeStore } from "../../states/GlobalZustandStates";
 
 const Job = () => {
-    const [isDark] = useRecoilState(themeState);
+    const { isDark } = useThemeStore();
     const [filter] = useRecoilState(jobFilterState);
     const jobLists = useJobList();
     return (
