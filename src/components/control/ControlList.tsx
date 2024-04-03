@@ -2,11 +2,10 @@ import React from "react";
 import { ControlListForm, ControlListFormProps } from "./ControlListForm";
 import { FieldValues, useForm } from "react-hook-form";
 import { ControlListFooter, ControlListFooterProps } from "./ControlListFooter";
-import { useRecoilState } from "recoil";
-import { themeState } from "../../states/GlobalStates";
+import { useThemeStore } from "../../states/GlobalZustandStates";
 
 export const ControlList = (props: ControlListProps) => {
-    const [isDark] = useRecoilState(themeState);
+    const { isDark } = useThemeStore();
     const { handleSubmit, register, resetField } = useForm();
     return (
         <form

@@ -11,9 +11,7 @@ export const TextInput = (props: TextInputProps) => {
                     type="text"
                     id="input-search"
                     {...props.register(props.name)}
-                    className={`bg-transparent focus:outline-none w-full text-gray-500 ${
-                        props.isDark ? "focus:text-white" : "focus:text-gray-950"
-                    }`}
+                    className={`bg-transparent focus:outline-none w-full`}
                     placeholder={props.placeholder}
                 />
                 <i
@@ -27,7 +25,6 @@ export const TextInput = (props: TextInputProps) => {
 
 export type TextInputProps = Omit<Partial<HTMLInputElement>, "name"> & {
     name: string;
-    isDark: boolean;
     register: UseFormRegister<FieldValues>;
     resetField: UseFormResetField<FieldValues>;
 };
